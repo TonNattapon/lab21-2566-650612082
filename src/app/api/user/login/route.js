@@ -1,9 +1,9 @@
+import { getPrisma } from "@/libs/getPrisma";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 //POST /api/user/login
 
-import { getPrisma } from "@/libs/getPrisma";
 import { NextResponse } from "next/server";
 
 export const POST = async (request) => {
@@ -26,6 +26,8 @@ export const POST = async (request) => {
       { status: 400 }
     );
   }
+
+  //read in db here
 
   //if found user, sign a JWT TOKEN
   const token = jwt.sign(
